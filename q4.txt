@@ -1,0 +1,33 @@
+#include<stdio.h>
+int sort(int*a ,int n,int N);
+int main()
+{
+    int a[100],n,i,N;
+    printf("enter size of array:");
+    scanf("%d",&n);
+    printf("enter %d elements:",n);
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    printf("enter n value:");
+    scanf("%d",&N);
+    if(n<N)
+    printf("%d th max-->%d",N,sort(a,n,N));
+    if(n>N)
+        printf("%d th max-->-1",N)
+    return 0;
+}
+int sort(int*a ,int n,int N)
+{
+    int i,j,t;
+    for(i=0;i<n;i++)
+    {
+     for(j=i+1;j<n;j++)
+        if(a[i]<a[j])
+     {
+         t=a[i];
+         a[i]=a[j];
+         a[j]=t;
+     }
+    }
+    return a[N-1];
+}
